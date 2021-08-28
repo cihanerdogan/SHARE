@@ -58,7 +58,7 @@ class RootWidget extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MapUiBody(),
+                        builder: (context) => IntroMapPage(),
                       ))
                 },
                 child: Text(
@@ -66,11 +66,14 @@ class RootWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 24, color: Colors.black),
                 ),
                 style: ButtonStyle(
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero,
                       side: BorderSide(
                         color: Colors.black,
-                      ))),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             )
