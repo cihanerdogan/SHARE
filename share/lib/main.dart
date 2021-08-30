@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:share/screens/mapPage.dart';
 
 void main() {
@@ -28,55 +27,71 @@ class RootWidget extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       body: Container(
+        height: height,
         color: Colors.white,
-        child: Column(
+        child: Stack(
           children: [
             Padding(padding: EdgeInsets.only(bottom: 50)),
-            Image.asset("assets/images/splash.png"),
-            Padding(padding: EdgeInsets.only(bottom: 50)),
-            Text(
-              "SHARE",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 48,
-                  fontFamily: "arial",
-                  fontWeight: FontWeight.w900),
+            Container(
+              width: width,
+              child: Image.asset(
+                "assets/images/splash.png",
+                fit: BoxFit.fill,
+              ),
             ),
-            Text(
-              "create the awareness",
-              style: TextStyle(
-                  color: Colors.grey,
-                  fontFamily: "arial",
-                  fontSize: 24,
-                  fontWeight: FontWeight.normal),
-            ),
-            Padding(padding: EdgeInsets.only(bottom: 150)),
-            SizedBox(
-              width: 200,
-              child: TextButton(
-                onPressed: () => {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => IntroMapPage(),
-                      ))
-                },
-                child: Text(
-                  "Next",
-                  style: TextStyle(fontSize: 24, color: Colors.black),
-                ),
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
-                      side: BorderSide(
-                        color: Colors.black,
-                      ),
+            Positioned(
+              bottom: height * 0.05,
+              width: width,
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(
+                      "SHARE",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 48,
+                          fontFamily: "arial",
+                          fontWeight: FontWeight.w900),
                     ),
-                  ),
+                    Text(
+                      "create the awareness",
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: "arial",
+                          fontSize: 24,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    Padding(padding: EdgeInsets.only(bottom: width * 0.1)),
+                    SizedBox(
+                      width: 200,
+                      child: TextButton(
+                        onPressed: () => {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => IntroMapPage(),
+                              ))
+                        },
+                        child: Text(
+                          "Next",
+                          style: TextStyle(fontSize: 24, color: Colors.black),
+                        ),
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                              side: BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
